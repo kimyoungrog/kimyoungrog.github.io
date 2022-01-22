@@ -3,6 +3,7 @@ const loginInput = document.querySelector("#login_form input");
 const greeting = document.querySelector("#greeting");
 const logoutButton = document.querySelector("#logout");
 const todo = document.querySelector("#todo_container");
+const todoList = document.querySelector("#todo_list");
 
 function checkLoginState() {
   const userName = localStorage.getItem("userName");
@@ -18,9 +19,10 @@ function checkLoginState() {
     greeting.classList.add("invisible");
     logoutButton.classList.add("invisible");
     todo.classList.add("invisible");
-    todo.childNodes.forEach((child) => {
+    todoList.childNodes.forEach((child) => {
       child.remove();
     });
+    todoList.classList.add("hidden");
   }
 }
 
@@ -33,6 +35,7 @@ loginForm.addEventListener("submit", (event) => {
   greeting.innerText = `Hello ${userName}`;
 
   checkLoginState();
+  loginInput.value = "";
 });
 
 logoutButton.addEventListener("click", (event) => {
