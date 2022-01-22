@@ -1,1 +1,87 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Final Challange</title>
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div style="margin-top: 50px;">
+    <div style="margin-left: 50px; float:left; ">
+      <h3 id="weather" style="float:left; margin: 0 auto;"></h3>
+      <img id="weather_icon">
+    </div>
+    <div style="margin-right: 50px;  text-align: right;">
+      <h2 id="greeting" class="invisible" style="display: inline;"></h2>
+      <button id="logout" class="mdc-button mdc-button--icon-leading invisible;" style="
+                color: #f7f7f7;
+                display: inline;
+                margin-left: 20px;
+                background-color: rgba(177, 177, 177, 0.329);
+              ">
+        <span class="mdc-button__ripple"></span>
+        <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i>
+        <span class="mdc-button__label">Logout</span>
+      </button>
+
+      <div />
+    </div>
+
+
+    <div style="
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      ">
+      <h1 id="clock" style="font-size: 600%;"></h1>
+      <div>
+        <div id="login_form">
+          <form class="hidden" style="border: none; box-shadow: none; display: flex;">
+            <input required maxlength="15" type="text" style="margin-bottom: 0px;" placeholder="What is your name?" />
+            <button id="login" class="mdc-button mdc-button--icon-leading" style="
+                margin-left: 20px;
+                color: #f7f7f7;
+                background-color: rgba(177, 177, 177, 0.329);
+              ">
+              <span class="mdc-button__ripple"></span>
+              <i class="material-icons mdc-button__icon" aria-hidden="true">login</i>
+              <span class="mdc-button__label">Login</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div id="todo_container" class="invisible " style="display:flex; flex-direction: row;">
+        <form id="todo"  style=" border: none; box-shadow: none;">
+          <input type="text" style="width: 100%;" placeholder="Write a To do and Press Enter" />
+          
+        </form>
+        
+        <ul id="todo_list" class="mdc-card" style="margin-left: 50px; background-color: rgba(177, 177, 177, 0.329);">
+          
+        </ul>
+      </div>
+
+    </div>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js"></script>
+    <script src="greeting.js"></script>
+    <script type="module" src="clock.js"></script>
+    <script type="module" src="todo.js"></script>
+    <script src="weather.js"></script>
+    <script src="background.js"></script>
+</body>
+
+</html>
