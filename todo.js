@@ -10,6 +10,12 @@ function loadTodos() {
   }
 
   todos.forEach((value) => paintTodo(value));
+
+  if (todoList.childElementCount > 0) {
+    todoList.classList.remove("hidden");
+  } else {
+    todoList.classList.add("hidden");
+  }
 }
 
 function paintTodo(todo) {
