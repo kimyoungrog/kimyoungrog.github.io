@@ -20,14 +20,18 @@ function loadTodos() {
 
 function paintTodo(todo) {
   const todoElement = document.createElement("li");
+  todoElement.style = "color: #F7F7F7";
   todoElement.innerText = todo;
   const removeElement = document.createElement("button");
   removeElement.classList.add("mdc-icon-button", "material-icons");
   removeElement.innerText = "delete";
   removeElement.addEventListener("click", () => {
-    todoElement.remove();
-    todos.pop(todos.indexOf(todo));
-    saveTodos();
+    const index = todos.indexOf(todo);
+    if (index > -1) {
+      todoElement.remove();
+      todos.splice(index, 1);
+      saveTodos();
+    }
   });
   todoElement.appendChild(removeElement);
   todoList.appendChild(todoElement);
