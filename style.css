@@ -1,11 +1,16 @@
 .hidden {
-  display: none;
-}
-
-.invisible {
-  visibility: hidden;
+  display: none !important;
 }
 
 body {
   background-size: cover;
+}
+
+.fc-day-sat,
+.fc-day-sun {
+  color: red !important;
+}
+
+.fc-day-today {
+  background-color: rgba(255, 220, 40, 0.55);
 }

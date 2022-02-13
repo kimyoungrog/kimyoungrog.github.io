@@ -5,20 +5,20 @@ const logoutButton = document.querySelector("#logout");
 
 function checkLoginState() {
   const userName = localStorage.getItem("userName");
-  const todoContainer = document.querySelector("#todo_container");
   const todoList = document.querySelector("#todo_list");
+  const contentInternal = document.querySelector("#content_internal");
 
   if (userName != null) {
     loginForm.classList.add("hidden");
     greeting.innerText = `Hello ${userName}`;
-    greeting.classList.remove("invisible");
-    logoutButton.classList.remove("invisible");
-    todoContainer.classList.remove("invisible");
+    greeting.classList.remove("hidden");
+    logoutButton.classList.remove("hidden");
+    contentInternal.classList.remove("hidden");
   } else {
     loginForm.classList.remove("hidden");
-    greeting.classList.add("invisible");
-    logoutButton.classList.add("invisible");
-    todoContainer.classList.add("invisible");
+    greeting.classList.add("hidden");
+    logoutButton.classList.add("hidden");
+    contentInternal.classList.add("hidden");
     todoList.innerHTML = "";
     todoList.classList.add("hidden");
   }
@@ -34,10 +34,13 @@ loginForm.addEventListener("submit", (event) => {
 
   checkLoginState();
   loginInput.value = "";
+
+  calendar.render();
 });
 
 logoutButton.addEventListener("click", (event) => {
   localStorage.removeItem("userName");
   localStorage.removeItem("todos");
+  localStorage.removeItem("privateGroup");
   checkLoginState();
 });

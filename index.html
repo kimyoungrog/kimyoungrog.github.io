@@ -1,87 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Final Challange</title>
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Final Challange</title>
-  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-  <div style="margin-top: 50px;">
-    <div style="margin-left: 50px; float:left; ">
-      <h3 id="weather" style="float:left; margin: 0 auto; color: #f7f7f7"></h3>
-      <img id="weather_icon">
+  <body>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js"></script>
+
+    <div style="margin-top: 50px;">
+      <div id="header">
+        <div style="margin-left: 50px; float: left;">
+          <h3
+            id="weather"
+            style="float: left; margin: 0 auto; color: #f7f7f7;"
+          ></h3>
+          <img id="weather_icon" />
+        </div>
+        <div style="margin-right: 50px; text-align: right;">
+          <h2
+            id="greeting"
+            class="hidden"
+            style="display: inline; color: #f7f7f7;"
+          ></h2>
+          <button
+            id="logout"
+            class="mdc-button mdc-button--icon-leading hidden;"
+            style="
+              color: #f7f7f7;
+              display: inline;
+              margin-left: 20px;
+              background-color: rgba(177, 177, 177, 0.329);
+            "
+          >
+            <span class="mdc-button__ripple"></span>
+            <i class="material-icons mdc-button__icon" aria-hidden="true"
+              >logout</i
+            >
+            <span class="mdc-button__label">Logout</span>
+          </button>
+        </div>
+      </div>
     </div>
-    <div style="margin-right: 50px;  text-align: right;">
-      <h2 id="greeting" class="invisible" style="display: inline; color: #f7f7f7"></h2>
-      <button id="logout" class="mdc-button mdc-button--icon-leading invisible;" style="
-                color: #f7f7f7;
-                display: inline;
-                margin-left: 20px;
-                background-color: rgba(177, 177, 177, 0.329);
-              ">
-        <span class="mdc-button__ripple"></span>
-        <i class="material-icons mdc-button__icon" aria-hidden="true">logout</i>
-        <span class="mdc-button__label">Logout</span>
-      </button>
 
-      <div />
-    </div>
-
-
-    <div style="
+    <div
+      id="content"
+      style="
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        justify-content: center;
+
         align-items: center;
-      ">
-      <h1 id="clock" style="font-size: 600%; color: #f7f7f7"></h1>
-      <div>
-        <div id="login_form">
-          <form class="hidden" style="border: none; box-shadow: none; display: flex;">
-            <input required maxlength="15" type="text" style="margin-bottom: 0px;" placeholder="What is your name?" />
-            <button id="login" class="mdc-button mdc-button--icon-leading" style="
-                margin-left: 20px;
-                color: #f7f7f7;
-                background-color: rgba(177, 177, 177, 0.329);
-              ">
-              <span class="mdc-button__ripple"></span>
-              <i class="material-icons mdc-button__icon" aria-hidden="true">login</i>
-              <span class="mdc-button__label">Login</span>
-            </button>
+      "
+    >
+      <h1 id="clock" style="margin: 0; font-size: 600%; color: #f7f7f7;"></h1>
+      <div
+        id="content_internal"
+        class="hidden"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 65px;
+          justify-content: space-around;
+        "
+        
+      >
+        <div
+          class="mdc-card"
+          style="
+            background-color: rgba(177, 177, 177, 0.529);
+            width: 30%;
+            padding: 20px;
+          "
+        >
+          <div>
+            <h3 style="display: inline;">재택근무</h3></span>
+            <input
+              type="radio"
+              id="A"
+              name="contact"
+              value="A"
+              
+            />
+            <label for="contactChoice1">A조</label>
+            <input type="radio" id="B" name="contact" value="B" />
+            <label for="contactChoice2">B조</label>
+            <input type="radio" id="C" name="contact" value="C" />
+            <label for="contactChoice3">C조</label>
+          </div>
+          <div id="calendar" style="margin-top:5px;"></div>
+        </div>
+
+        <div
+          id="todo_container"
+          
+          style="
+            display: flex;
+            flex-direction: column;
+            
+            width: 40%;
+          "
+        >
+          <form id="todo" style="border: none; box-shadow: none; width: 100%;">
+            <input
+              type="text"
+              style="width: 100%; height: 30px;"
+              placeholder="Write a To do and Press Enter"
+            />
           </form>
+
+          <ul
+            id="todo_list"
+            class="mdc-card hidden"
+            style="background-color: rgba(177, 177, 177, 0.329);"
+          ></ul>
         </div>
       </div>
 
-      <div id="todo_container" class="invisible " style="display:flex; flex-direction: row;">
-        <form id="todo"  style=" border: none; box-shadow: none;">
-          <input type="text" style="width: 100%;" placeholder="Write a To do and Press Enter" />
+      <div id="login_form" style="margin-top:100px; width: 100%">
+        <form
           
+          style="border: none; box-shadow: none; display: flex; justify-content: center;"
+        >
+          <input
+            required
+            maxlength="15"
+            type="text"
+            style="margin-bottom: 0px; width:30%"
+            placeholder="What is your name?"
+          />
+          <button
+            id="login"
+            class="mdc-button mdc-button--icon-leading"
+            style="
+            
+              margin-left: 20px;
+              color: #f7f7f7;
+              background-color: rgba(177, 177, 177, 0.329);
+            "
+          >
+            <span class="mdc-button__ripple"></span>
+            <i class="material-icons mdc-button__icon" aria-hidden="true"
+              >login</i
+            >
+            <span class="mdc-button__label">Login</span>
+          </button>
         </form>
-        
-        <ul id="todo_list" class="mdc-card hidden" style="margin-left: 50px; background-color: rgba(177, 177, 177, 0.329);">
-          
-        </ul>
       </div>
-
     </div>
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js"></script>
     <script src="greeting.js"></script>
     <script src="clock.js"></script>
     <script src="todo.js"></script>
     <script src="weather.js"></script>
     <script src="background.js"></script>
-</body>
-
+    <script src="calendar.js"></script>
+  </body>
 </html>
